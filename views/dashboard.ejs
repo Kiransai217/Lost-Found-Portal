@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard</title>
+
+        <link rel="stylesheet" href="/style.css"> 
+    </head>
+    <body>
+        <h2>Lost & Found Dashboard</h2>
+
+        <a href="/item/add">Add New Item</a>
+        <a href="/logout">Logout</a>
+
+        <hr>
+
+        <% if (items.length === 0) { %>
+            <p>No items posted yet.</p>
+        <% } %>
+
+        <% items.forEach(item => { %>
+            <div class="item-card">
+                <h3><%= item.title %> (<%= item.category %>)</h3>
+                <p><%= item.description %></p>
+                <p>Contact: <%= item.contact %></p>
+
+                <a href="/item/edit/<%= item.id %>">Edit</a>
+                <a href="/item/delete/<%= item.id %>">Delete</a>
+
+            </div>
+        <% }) %>
+    </body>
+</html>
